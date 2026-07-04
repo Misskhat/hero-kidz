@@ -1,5 +1,9 @@
 import Image from "next/image";
 
 export default function Home() {
-  return <button className="btn btn-secondary">Test button</button>;
+  return (
+    <div className="flex min-h-screen items-center justify-center">
+      <button className="btn btn-secondary">Test button</button>
+    </div>
+  );
 }
