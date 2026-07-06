@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { FaStar, FaShoppingCart, FaEye } from "react-icons/fa";
 
 export default function ProductCard({ product }) {
+  const { _id: id } = product;
   const discountedPrice =
     product.price - (product.price * product.discount) / 100;
 
@@ -15,6 +17,8 @@ export default function ProductCard({ product }) {
           src={product.image}
           alt={product.title}
           fill
+          sizes="max-w-500px"
+          loading="eager"
           className="object-cover hover:scale-105 transition-transform duration-300"
         />
 
@@ -69,10 +73,10 @@ export default function ProductCard({ product }) {
             Add Cart
           </button>
 
-          <button className="btn btn-outline">
+          <Link href={`/products/${id}`} className="btn btn-outline">
             <FaEye />
             Details
-          </button>
+          </Link>
         </div>
       </div>
     </div>
